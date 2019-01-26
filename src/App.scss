@@ -1,27 +1,37 @@
 $main-blue: #1e407c;
 $bodyBg: #3a3042;
 
-html {
-  background-color: $main-blue;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+#overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://www.digitalmga.com/hubfs/Images/DMGA_Skyscrapers_duotone_v1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.4;
 }
 
 .form_container {
+  font-family: 'Roboto', sans-serif;
   position: absolute;
   margin: 100px;
   width: 60%;
-  height: 100%;
+  height: auto;
   background-color: white;
   border: 1px grey solid;
   border-radius: 5px;
   padding: 10px;
 }
 
-.summary_container {
-
-}
-
 .accordion-container {
-  width: 60%;
+  padding: 50px;
   min-width: 500px;
   margin: 5vh auto;
   border-radius: 5px;
@@ -43,40 +53,46 @@ h1 {
   letter-spacing: 10px;
 }
 
+h3 {
+  margin: 9px;
+  display: inline;
+  padding: 10px;
+}
 
-.answer, .summary {
+.answer, .header {
   display: inline-block;
 }
 
 .answer {
-  background: $bodyBg;
-  color: #fff;
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  color: black;
 }
 
-.summary {
-  font-family: 'Josefin Slab', serif;
+.header {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
   text-transform: uppercase;
   cursor: pointer;
   line-height: 25px;
   padding: 15px;
-  &:before {
-    content: '>\0000a0';
-  }
+  width: 100%;
 }
 
 .folding-panel {
   display: block;
   transition: all 0.2s ease-in;
   line-height: 40px;
-  border-top: 2px solid $bodyBg;
 }
 
-.active .summary {
+.active .header {
   border-color: transparent;
-  transition: border-color 0.2s ease-out;
+  transition: 0.4s ease-out;
 }
 
 .inactive .folding-panel {
+  display: none;
   transform-origin: 50% 0%;
   transform: perspective(250px);
   transition: all 0.4s ease-in-out;
@@ -86,7 +102,10 @@ h1 {
 .active .folding-panel {
   transform: perspective(350px) rotateX(0deg);
   transition: all 0.4s ease-in-out;
-  height: 50px;
-  line-height: 50px;
-  text-indent: 40px;
+  height: auto;
+}
+
+.radio {
+  display: inline;
+  margin: 10px;
 }
