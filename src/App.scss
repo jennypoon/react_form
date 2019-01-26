@@ -1,0 +1,92 @@
+$main-blue: #1e407c;
+$bodyBg: #3a3042;
+
+html {
+  background-color: $main-blue;
+}
+
+.form_container {
+  position: absolute;
+  margin: 100px;
+  width: 60%;
+  height: 100%;
+  background-color: white;
+  border: 1px grey solid;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.summary_container {
+
+}
+
+.accordion-container {
+  width: 60%;
+  min-width: 500px;
+  margin: 5vh auto;
+  border-radius: 5px;
+  background-color: #fff;
+
+  div {
+    border-bottom: 3px solid;
+    transition: border-color 0.5s ease-in;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 10vh;
+  letter-spacing: 10px;
+}
+
+
+.answer, .summary {
+  display: inline-block;
+}
+
+.answer {
+  background: $bodyBg;
+  color: #fff;
+}
+
+.summary {
+  font-family: 'Josefin Slab', serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 25px;
+  padding: 15px;
+  &:before {
+    content: '>\0000a0';
+  }
+}
+
+.folding-panel {
+  display: block;
+  transition: all 0.2s ease-in;
+  line-height: 40px;
+  border-top: 2px solid $bodyBg;
+}
+
+.active .summary {
+  border-color: transparent;
+  transition: border-color 0.2s ease-out;
+}
+
+.inactive .folding-panel {
+  transform-origin: 50% 0%;
+  transform: perspective(250px);
+  transition: all 0.4s ease-in-out;
+  height: 0;
+
+}
+.active .folding-panel {
+  transform: perspective(350px) rotateX(0deg);
+  transition: all 0.4s ease-in-out;
+  height: 50px;
+  line-height: 50px;
+  text-indent: 40px;
+}
