@@ -16,7 +16,6 @@ class Accordion extends Component {
   render() {
     return(
       <div>
-        <h1>What is...</h1>
         <div className="accordion-container">{Object.keys(this.state.questions).map(this.renderQuestion)} </div>
       </div>
     )
