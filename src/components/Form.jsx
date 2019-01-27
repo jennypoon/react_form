@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-// import Accordian from './Accordian.jsx';
 import Profile from './Profile.jsx';
 import Selection from './Selection.jsx';
 import Checkout from './Checkout.jsx';
-
-
+import { Accordion, AccordionItem } from 'react-light-accordion';
 
 class Form extends Component {
 
   render() {
     return (
       <div className="form_container">
-        <Profile />
-        <Selection />
-        <Checkout />
+        <Accordion atomic={true}>
+
+          <AccordionItem title="Profile">
+            <Profile />
+          </AccordionItem>
+
+          <AccordionItem title="Selection">
+            <Selection />
+          </AccordionItem>
+
+          <AccordionItem title="Review">
+            <Checkout />
+          </AccordionItem>
+
+        </Accordion>
       </div>
     )
   }

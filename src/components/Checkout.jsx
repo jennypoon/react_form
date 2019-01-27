@@ -9,7 +9,6 @@ class Checkout extends Component {
     };
 
     this.toggle = this.toggle.bind(this);
-    this.validateEmail = this.validateEmail.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
   }
@@ -33,11 +32,6 @@ class Checkout extends Component {
 
   handleSubmit() {
 
-  }
-
-  validateEmail(input) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(input).toLowerCase());
   }
 
   render() {

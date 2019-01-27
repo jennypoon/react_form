@@ -1,0 +1,39 @@
+import React, { Component } from 'react';
+
+class FormTwo extends Component {
+
+  render() {
+    return (
+     <div className="container">
+      <form>
+        <ul className="flex-outer">
+          <li>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" placeholder="Enter your first name here"/>
+          </li>
+          <li>
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" placeholder="Enter your last name here"/>
+          </li>
+          <li>
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email here"/>
+          </li>
+          <li>
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Enter your phone here"/>
+          </li>
+
+            <label for="message">
+              <label> Question: </label>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat?</p></label>
+            <textarea rows="6" id="message" placeholder="Enter your message here"></textarea>
+        </ul>
+            <button type="submit">Submit</button>
+      </form>
+    </div>
+  )}
+}
+
+
+export default FormTwo
