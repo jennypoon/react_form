@@ -48,13 +48,6 @@ h3 {
   margin-top: 10px;
 }
 
-textarea {
-  resize: none;
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-top: 20px;
-}
 
 .container {
   width: 90%;
@@ -76,7 +69,7 @@ textarea {
 }
 
 .flex-outer {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 10px auto;
 }
 
@@ -118,13 +111,26 @@ textarea {
   margin: 0;
 }
 
-.flex-outer li input:not([type='checkbox']),
-.flex-outer li textarea {
+.flex-outer li input:not([type='checkbox']) {
+  font-size: 1em;
+  outline: 0px;
+  border-width: 0 0 1px;
   padding: 15px;
-  border: none;
+  border-color: black;
 }
 
-.flex-outer li button {
+textarea {
+  font-size: 1em;
+  resize: none;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px
+}
+
+button {
+  margin-top: 20px;
   margin-left: auto;
   padding: 8px 16px;
   border: none;
@@ -153,12 +159,12 @@ textarea {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-.accordion .accordion-item .title {
+.accordion-item .title {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   background-color: #f6f6f6;
-  color: #444;
+  color: $main-blue;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -167,27 +173,39 @@ textarea {
   outline: none;
   transition: 0.4s;
 }
-.accordion .accordion-item .title:after {
+
+.accordion-item .title:after {
   content: '\2795';
   font-size: 13px;
-  color: #777;
+  color: $main-blue;
   float: right;
   margin-left: 5px;
 }
-.accordion .accordion-item .panel {
+
+.accordion-item.active .title {
+  background-color: $main-blue;
+  color: white;
+}
+
+.accordion-item.active .title:after {
+  content: '\2796';
+  font-size: 13px;
+  color: #FFF;
+  float: right;
+  margin-left: 5px;
+}
+
+.accordion-item .panel {
   max-height: 0;
   transition: max-height 0.15s ease-out;
   overflow: hidden;
 }
-.accordion .accordion-item.active .title {
-  background-color: #eee;
-}
-.accordion .accordion-item.active .title:after {
-  content: '\2796';
-}
-.accordion .accordion-item.active .panel {
+
+.accordion-item.active .panel {
   height: 100%;
   max-height: 100%;
   transition: max-height 0.25s ease-in;
 }
+
+
 
