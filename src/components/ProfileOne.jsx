@@ -24,9 +24,7 @@ class FormOne extends Component {
             <input type="tel" id="phone" placeholder="Enter your phone here"/>
           </li>
 
-          <li>
             <button type="submit">Submit</button>
-          </li>
         </ul>
       </form>
     </div>
