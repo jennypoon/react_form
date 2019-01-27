@@ -112,6 +112,7 @@ h3 {
 }
 
 .flex-outer li input:not([type='checkbox']) {
+  background-color: white;
   font-size: 1em;
   outline: 0px;
   border-width: 0 0 1px;
@@ -119,7 +120,24 @@ h3 {
   border-color: black;
 }
 
+.flex-outer label.error {
+  margin: 0px;
+  color: red;
+  font-size: 0.8em;
+}
+
+.notError {
+  display: none;
+}
+
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+
 textarea {
+  background-color: white;
   font-size: 1em;
   resize: none;
   display: block;
@@ -130,7 +148,6 @@ textarea {
 }
 
 button {
-  margin-top: 20px;
   margin-left: auto;
   padding: 8px 16px;
   border: none;
@@ -145,7 +162,6 @@ button {
   width: 100px;
 }
 
-/*ACCORDIAN*/
 /*ACCORDIAN*/
 .accordion {
   border-radius: 5px;
