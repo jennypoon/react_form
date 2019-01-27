@@ -7,29 +7,29 @@ class Profile extends Component {
     super();
     this.state = {
       selectedOption: "1",
-      // active: false
+      emailError: false,
+      phoneError: false
     };
 
-    this.toggle = this.toggle.bind(this);
-    this.handleChange = this.handleChange.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
-  }
-
-  toggle() {
-    // this.setState({
-
-    // });
-  }
-
-  handleChange(event) {
-    event.preventDefault();
-    this.setState({ [event.target.name]: event.target.value });
+    this.handleError = this.handleError.bind(this)
   }
 
   handleOptionChange(event) {
     this.setState({ selectedOption: event.target.value });
   }
 
+  handleError(event, num) {
+    let eventerr = event
+    console.log("IN HANDLEERROR IN PARENT", event, num)
+    if (num === 1) {
+      this.setState({emailError: true });
+      console.log("TRUE")
+    } else {
+      this.setState({emailError: false});
+      console.log("FALSE")
+    }
+  }
 
   render() {
 
@@ -55,7 +55,11 @@ class Profile extends Component {
           </label>
           </span>
           {this.state.selectedOption === "1" ? (
-            <FormOne />
+            <FormOne
+              handleError={this.handleError}
+              emailError={this.state.emailError}
+              phoneError ={this.state.phoneError}
+              />
             ) : (
             <FormTwo />
           )}
