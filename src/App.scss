@@ -11,9 +11,9 @@ $bodyBg: #3a3042;
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("https://www.digitalmga.com/hubfs/Images/DMGA_Skyscrapers_duotone_v1.jpg");
+/*  background-image: url("https://www.digitalmga.com/hubfs/Images/DMGA_Skyscrapers_duotone_v1.jpg");
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
   background-size: cover;
   opacity: 0.4;
 }
@@ -30,23 +30,6 @@ $bodyBg: #3a3042;
   padding: 10px;
 }
 
-.accordion-container {
-  padding: 50px;
-  min-width: 500px;
-  margin: 5vh auto;
-  border-radius: 5px;
-  background-color: #fff;
-
-  div {
-    border-bottom: 3px solid;
-    transition: border-color 0.5s ease-in;
-  }
-}
-
-body {
-  margin: 0;
-}
-
 h1 {
   text-align: center;
   margin-top: 10vh;
@@ -59,53 +42,152 @@ h3 {
   padding: 10px;
 }
 
-.answer, .header {
-  display: inline-block;
+.radio {
+  padding: 20px;
+  display: inline;
+  margin-top: 10px;
 }
 
-.answer {
-  padding: 10px;
-  background: white;
-  border-radius: 5px;
-  color: black;
-}
-
-.header {
-  font-family: 'Roboto', sans-serif;
-  font-size: 20px;
-  text-transform: uppercase;
-  cursor: pointer;
-  line-height: 25px;
-  padding: 15px;
-  width: 100%;
-}
-
-.folding-panel {
+textarea {
+  resize: none;
   display: block;
-  transition: all 0.2s ease-in;
-  line-height: 40px;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
 }
 
-.active .header {
-  border-color: transparent;
-  transition: 0.4s ease-out;
-}
-
-.inactive .folding-panel {
-  display: none;
-  transform-origin: 50% 0%;
-  transform: perspective(250px);
-  transition: all 0.4s ease-in-out;
-  height: 0;
-
-}
-.active .folding-panel {
-  transform: perspective(350px) rotateX(0deg);
-  transition: all 0.4s ease-in-out;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
   height: auto;
 }
 
-.radio {
-  display: inline;
-  margin: 10px;
+.container * {
+  box-sizing: border-box;
+  height: auto;
 }
+
+.flex-outer,
+.flex-inner {
+  list-style-type: none;
+  padding: 0;
+}
+
+.flex-outer {
+  max-width: 800px;
+  margin: 10px auto;
+}
+
+.flex-outer li,
+.flex-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.flex-inner {
+  padding: 0 8px;
+  justify-content: space-between;
+}
+
+.flex-outer > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.flex-outer li label,
+.flex-outer li p {
+  font-weight: 300;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.flex-outer > li > label,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}
+
+.flex-outer li p {
+  margin: 0;
+}
+
+.flex-outer li input:not([type='checkbox']),
+.flex-outer li textarea {
+  padding: 15px;
+  border: none;
+}
+
+.flex-outer li button {
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background: #333;
+  color: #f2f2f2;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  border-radius: 2px;
+}
+
+.flex-inner li {
+  width: 100px;
+}
+
+/*ACCORDIAN*/
+/*ACCORDIAN*/
+.accordion {
+  border-radius: 5px;
+  border: 1px solid #d9d9d9;
+}
+.accordion .accordion-item:first-child .title {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.accordion .accordion-item:last-child .title {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.accordion .accordion-item .title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  background-color: #f6f6f6;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+}
+.accordion .accordion-item .title:after {
+  content: '\2795';
+  font-size: 13px;
+  color: #777;
+  float: right;
+  margin-left: 5px;
+}
+.accordion .accordion-item .panel {
+  max-height: 0;
+  transition: max-height 0.15s ease-out;
+  overflow: hidden;
+}
+.accordion .accordion-item.active .title {
+  background-color: #eee;
+}
+.accordion .accordion-item.active .title:after {
+  content: '\2796';
+}
+.accordion .accordion-item.active .panel {
+  height: 100%;
+  max-height: 100%;
+  transition: max-height 0.25s ease-in;
+}
+
