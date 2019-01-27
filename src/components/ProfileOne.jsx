@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {validateEmail, validatePhone} from '../dataHelper.js'
 
 class FormOne extends Component {
     constructor() {
@@ -10,7 +11,7 @@ class FormOne extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
-    this.validateEmail = this.validateEmail.bind(this);
+    // this.validateEmail = this.validateEmail.bind(this);
   }
 
   handleChange(event) {
@@ -21,17 +22,17 @@ class FormOne extends Component {
   }
 
   handleBlur(event) {
-    if (this.validateEmail(event.target.value)) {
+    if (validateEmail(event.target.value)) {
       this.props.handleError("email", 0)
     } else {
       this.props.handleError("email", 1)
     }
   }
 
-  validateEmail(input) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(input).toLowerCase());
-  }
+  // validateEmail(input) {
+  //   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  //   return re.test(String(input).toLowerCase());
+  // }
 
 
   render() {

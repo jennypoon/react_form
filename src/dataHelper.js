@@ -8,4 +8,9 @@ function validatePhone(input) {
   return re.test(input)
 }
 
-export default validateEmail
+
+
+module.exports = {
+    validatePhone: validatePhone,
+    validateEmail: validateEmail
+}
