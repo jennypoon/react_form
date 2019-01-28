@@ -1,21 +1,38 @@
 import React, { Component } from 'react';
+import {validateEmail, validatePhone} from '../dataHelper.js'
+
 
 class FormTwo extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-
-    };
+      constructor() {
+      super();
+      this.state = {
+          email: '',
+          phone: 0,
+      };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
-
 
   handleChange(event) {
     event.preventDefault();
-    console.log(event.target.name)
     this.setState({ [event.target.name]: event.target.value });
+  }
+
+  handleBlur(event) {
+    if (event.target.name === "email") {
+      if (validateEmail(event.target.value)) {
+        this.props.handleError("emailError", 0)
+      } else {
+        this.props.handleError("emailError", 1)
+      }
+    } else if (event.target.name === "phone") {
+      if (validatePhone(event.target.value)) {
+        this.props.handleError("phoneError", 0)
+      } else {
+        this.props.handleError("phoneError", 1)
+      }
+    }
   }
 
   render() {
@@ -25,20 +42,32 @@ class FormTwo extends Component {
         <ul className="flex-outer">
           <li>
             <label htmlFor="first-name">First Name</label>
-            <input type="text" id="first-name" onChange={this.handleChange} placeholder="Enter your first name here"/>
+            <input type="text" name="firstName" id="first-name"
+                    onChange={this.handleChange}
+                    placeholder="Enter your first name here"
+                    required/>
           </li>
           <li>
             <label htmlFor="last-name">Last Name</label>
-            <input type="text" id="last-name" onChange={this.handleChange} placeholder="Enter your last name here"/>
+            <input type="text" name="lastName" id="last-name" onChange={this.handleChange} placeholder="Enter your last name here" required/>
           </li>
           <li>
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={this.handleChange} placeholder="Enter your email here"/>
+            <input type="email" name="email" id="email"
+                    onChange={this.handleChange}
+                    onBlur={this.handleBlur}
+                    placeholder="Enter your email here" required/>
           </li>
+          <p  className={this.props.emailError === false ? "notError" : "error"} > Error - Please insert a valid email</p>
+
           <li>
             <label htmlFor="phone">Phone</label>
-            <input type="tel" id="phone" onChange={this.handleChange} placeholder="Enter your phone here"/>
+            <input type="tel" name="phone" id="phone"
+                    onChange={this.handleChange}
+                    onBlur={this.handleBlur}
+                    placeholder="Enter your phone here" required/>
           </li>
+            <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
 
             <label htmlFor="question">
               <label> Question: </label>

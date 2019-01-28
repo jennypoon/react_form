@@ -22,18 +22,20 @@ class FormOne extends Component {
   }
 
   handleBlur(event) {
-    if (validateEmail(event.target.value)) {
-      this.props.handleError("email", 0)
+    if (event.target.name === "email") {
+      if (validateEmail(event.target.value)) {
+        this.props.handleError("emailError", 0)
+      } else {
+        this.props.handleError("emailError", 1)
+      }
     } else {
-      this.props.handleError("email", 1)
+      if (validatePhone(event.target.value)) {
+        this.props.handleError("phoneError", 0)
+      } else {
+        this.props.handleError("phoneError", 1)
+      }
     }
   }
-
-  // validateEmail(input) {
-  //   var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  //   return re.test(String(input).toLowerCase());
-  // }
-
 
   render() {
     return (
@@ -58,13 +60,16 @@ class FormOne extends Component {
                     onBlur={this.handleBlur}
                     placeholder="Enter your email here" required/>
           </li>
-          <label  className={this.props.emailError === false ? "notError" : "error"} > Error - Please insert a valid email</label>
+          <p  className={this.props.emailError === false ? "notError" : "error"} > Error - Please insert a valid email</p>
 
           <li>
             <label htmlFor="phone">Phone</label>
-            <input type="tel" name="phone" id="phone" onChange={this.handleChange} placeholder="Enter your phone here" required/>
+            <input type="tel" name="phone" id="phone"
+                    onChange={this.handleChange}
+                    onBlur={this.handleBlur}
+                    placeholder="Enter your phone here" required/>
           </li>
-
+            <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
             <button type="submit">Submit</button>
         </ul>
       </form>
