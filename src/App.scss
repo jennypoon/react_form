@@ -86,7 +86,7 @@ h3 {
 }
 
 .flex-outer > li:not(:last-child) {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .flex-outer li label,
@@ -120,8 +120,7 @@ h3 {
   border-color: black;
 }
 
-.flex-outer label.error {
-  margin: 0px;
+.flex-outer p.error {
   color: red;
   font-size: 0.8em;
 }
