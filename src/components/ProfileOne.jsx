@@ -11,7 +11,6 @@ class FormOne extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
-    // this.validateEmail = this.validateEmail.bind(this);
   }
 
   handleChange(event) {

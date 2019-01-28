@@ -67,8 +67,22 @@ class FormTwo extends Component {
                     onBlur={this.handleBlur}
                     placeholder="Enter your phone here" required/>
           </li>
-            <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
-
+          <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
+          <li><h3 className="section"> Business Information</h3></li>
+          <li>
+            <label htmlFor="business-name">Business Name</label>
+            <input type="text" name="BusinessName" id="business-name"
+                  onChange={this.handleChange}
+                  placeholder="Enter your first name here"
+                  required/>
+          </li>
+          <li>
+            <label htmlFor="business-address">Business Address</label>
+            <input type="text" name="BusinessAddress" id="business-address"
+                  onChange={this.handleChange}
+                  placeholder="Enter your first name here"
+                  required/>
+          </li>
             <label htmlFor="question">
               <label> Question: </label>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat?</p></label>
@@ -77,7 +91,7 @@ class FormTwo extends Component {
             <label htmlFor="question">
               <label> Question: </label>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alique?</p></label>
-            <textarea rows="5" id="questionTwo" onChange={this.handleChange} placeholder="Enter your answer here"></textarea>
+            <textarea rows="4" id="questionTwo" onChange={this.handleChange} placeholder="Enter your answer here"></textarea>
         </ul>
             <button type="submit">Submit</button>
       </form>
