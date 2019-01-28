@@ -16,18 +16,16 @@ class Profile extends Component {
   }
 
   handleOptionChange(event) {
-    this.setState({ selectedOption: event.target.value });
+    this.setState({ selectedOption: event.target.value,
+                    emailError: false,
+                    phoneError: false });
   }
 
   handleError(event, num) {
-    let eventerr = event
-    console.log("IN HANDLEERROR IN PARENT", event, num)
     if (num === 1) {
-      this.setState({emailError: true });
-      console.log("TRUE")
+      this.setState({[event]: true});
     } else {
-      this.setState({emailError: false});
-      console.log("FALSE")
+      this.setState({[event]: false});
     }
   }
 
@@ -61,7 +59,11 @@ class Profile extends Component {
               phoneError ={this.state.phoneError}
               />
             ) : (
-            <FormTwo />
+            <FormTwo
+              handleError={this.handleError}
+              emailError={this.state.emailError}
+              phoneError ={this.state.phoneError}
+              />
           )}
         </div>
       </div>
