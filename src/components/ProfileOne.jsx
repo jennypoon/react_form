@@ -68,8 +68,8 @@ class FormOne extends Component {
                     onBlur={this.handleBlur}
                     placeholder="Enter your phone here" required/>
           </li>
-            <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
-            <button type="submit">Submit</button>
+          <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
+          <button type="submit">Submit</button>
         </ul>
       </form>
     </div>
