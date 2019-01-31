@@ -18,11 +18,10 @@ class Draft extends Component {
       if (value !== 0) {
         return (
           <tr>
-          <td style={{width: '3%'}}>{item}</td>
-          <td style={{width: '1%'}}>${value}</td>
-          </tr>)
-
-      }
+            <td style={{width: '3%'}}>{item}</td>
+            <td style={{width: '1%'}}>${value}</td>
+          </tr>
+        )}
     })
   }
 
@@ -39,11 +38,11 @@ class Draft extends Component {
       let value = parseInt(obj[key])
       total += value
     });
-        return (
-          <tr>
+      return (
+        <tr>
           <td style={{width: '50%'}}>Total</td>
           <td style={{width: '12.2%'}}>${total}</td>
-          </tr>)
+        </tr>)
      }
 
   render() {

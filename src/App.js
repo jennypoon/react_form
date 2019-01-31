@@ -16,9 +16,7 @@ class App extends Component {
   }
 
   quoteStates(item, value) {
-    console.log("QUOTE STATE - ITEM, VALUE", item, value)
     this.setState({ [item]: value})
-
   }
 
   handleCheckedBox(item, value) {

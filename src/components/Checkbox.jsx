@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 class Checkbox extends Component {
   constructor() {
     super()
-  this.state = {
-    isChecked: false,
+    this.state = {
+      isChecked: false,
+    }
   }
 
-}
   toggleCheckboxChange = (event) => {
     let isChecked = this.state.isChecked
     let name = event.target.name
@@ -26,9 +26,7 @@ class Checkbox extends Component {
         this.props.draftQuote(this.state.name, 0)
       }
     });
-
     handleCheckboxChange(label);
-
   }
 
   render() {
@@ -36,6 +34,7 @@ class Checkbox extends Component {
     const { label } = this.props
     const { isChecked } = this.state;
     const item = name.charAt(0).toUpperCase() + name.slice(1).replace("_", " ")
+
     return (
         <label>
           <input

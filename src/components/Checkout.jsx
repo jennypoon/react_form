@@ -22,7 +22,6 @@ class Checkout extends Component {
 
   handleChange(event) {
     event.preventDefault();
-    console.log(event.target.name)
     this.setState({ [event.target.name]: event.target.value });
   }
 
