@@ -1,36 +1,48 @@
 import React, { Component } from 'react';
 
-
 class Draft extends Component {
   constructor() {
     super()
     this.createList = this.createList.bind(this)
+    this.calculateTotal = this.calculateTotal.bind(this)
+    this.createListings = this.createListings.bind(this)
   }
 
   createList(obj) {
-    // console.log("DRAFT QUOTE", obj)
-    delete obj[0].selectedOption
-    delete obj[0].active
+    delete obj.selectedOption
+    delete obj.active
 
-    for (const key in obj[0]) {
-      let value = obj[0][key]
-      // console.log("VALUE", value)
-
+    return Object.keys(obj).map(function(key, keyIndex) {
+      let value = obj[key]
       let item = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
-      // console.log("ITEM", item)
-    }
-    // Object.entries(obj).forEach((entry) => {
-    //   let key = entry[0]
-    //   let value = entry[1]
-    //   console.log("I", i)
-    // })
+      return <p>{item}: ${value}</p>
+    })
   }
 
+  createListings(item, value) {
+    return <p> item </p>
+  }
+
+  calculateTotal(obj) {
+    delete obj.selectedOption
+    delete obj.active
+    let total = 0
+
+    Object.keys(obj).map(function(key) {
+      let value = parseInt(obj[key])
+      total += value
+    });
+   return total
+ }
+
   render() {
+
     return (
       <div className="draft_container">
         <h1>Draft Quote</h1>
-        {this.createList([this.props.formState])}
+        <p> Your Selection </p>
+        {this.createList(this.props.formState)}
+        <p> Total = ${this.calculateTotal(this.props.formState)} </p>
       </div>
     )
   }
