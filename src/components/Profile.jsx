@@ -30,6 +30,7 @@ class Profile extends Component {
   }
 
   render() {
+    console.log("PROFILE STATE", this.state)
 
     return (
       <div>
@@ -54,12 +55,14 @@ class Profile extends Component {
           </span>
           {this.state.selectedOption === "1" ? (
             <FormOne
+              profileState={this.props.profileState}
               handleError={this.handleError}
               emailError={this.state.emailError}
               phoneError ={this.state.phoneError}
               />
             ) : (
             <FormTwo
+              profileState={this.props.profileState}
               handleError={this.handleError}
               emailError={this.state.emailError}
               phoneError ={this.state.phoneError}

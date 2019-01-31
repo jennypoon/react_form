@@ -11,15 +11,18 @@ class FormOne extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  //FORM INPUTS
   handleChange(event) {
-    console.log(event.target.value)
     event.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
-    console.log(this.state)
+    console.log("HANDLE CHANGE", this.state)
   }
 
+
+  //EMAIL AND PHONE VALIDATION
   handleBlur(event) {
     if (event.target.name === "email") {
       if (validateEmail(event.target.value)) {
@@ -36,7 +39,14 @@ class FormOne extends Component {
     }
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log("HANDLESUBMIT, PROFILE1", this.state)
+    this.props.profileState(this.state)
+  }
+
   render() {
+    console.log("PROFILE1 STATE", this.state)
     return (
      <div className="container">
       <form>
@@ -69,7 +79,7 @@ class FormOne extends Component {
                     placeholder="Enter your phone here" required/>
           </li>
           <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
-          <button type="submit">Submit</button>
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
         </ul>
       </form>
     </div>

@@ -6,13 +6,13 @@ class Selection extends Component {
   constructor() {
     super();
     this.state = {
-      selectedOption: "1",
-      active: false,
+
     };
 
     this.toggle = this.toggle.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleCheckedBox = this.handleCheckedBox.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   toggle() {
@@ -31,6 +31,12 @@ class Selection extends Component {
     this.setState({ selectedOption: event.target.value });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log("HANDLESUBMIT, SELECTION", this.state)
+    this.props.finalSelectionState(this.state)
+  }
+
   render() {
     return (
         <div className="container">
@@ -39,7 +45,7 @@ class Selection extends Component {
               <h2>Checkboxes</h2>
               <CheckboxTwo handleCheckedBox={this.handleCheckedBox}/>
           </ul>
-              <button type="submit">Submit</button>
+              <button type="submit" onClick={this.handleSubmit}>Review Order</button>
         </form>
       </div>
       )
