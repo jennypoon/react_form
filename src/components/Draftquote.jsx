@@ -11,6 +11,10 @@ class Draft extends Component {
   createList(obj) {
     delete obj.selectedOption
     delete obj.active
+    delete obj.activeSection
+    delete obj.profileInfo
+    delete obj.finalSelection
+    console.log("OBJ CREATE LIST", obj)
     return Object.keys(obj).map(function(key, keyIndex) {
       let value = parseInt(obj[key])
       let item = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
@@ -48,15 +52,16 @@ class Draft extends Component {
   render() {
     const {formState} = this.props
     var length = Object.keys(formState).length;
+    console.log("LENGTH", length)
 
     return (
-      <div className="draft_container">
-        <h3>Draft Quote</h3>
-        <p> Your Selection </p>
-        { (length > 1) ? this.createList(formState) : "You haven't selected anything"}
+      <section className="draft_container">
+        <h3>Cost Estimation</h3>
+        <p> Your Items </p>
+        { (length > 4) ? this.createList(formState) : "You haven't selected anything"}
         <hr/>
-        { (length > 1) ? this.calculateTotal(formState) : ""}
-      </div>
+        { (length > 4) ? this.calculateTotal(formState) : ""}
+      </section>
     )
   }
 }
