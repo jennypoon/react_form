@@ -242,8 +242,8 @@ button {
     display: block;
     margin: 5px 0;
     position: relative;
-
-    label {
+}
+/*    label {
       padding: 12px 30px;
       width: 100%;
       display: block;
@@ -261,7 +261,7 @@ button {
         text-transform: none;
         font-size: 12px;
       }
-}}
+}}*/
 body {
   background-color: #D1D7DC;
   font-family: 'Fira Sans', sans-serif;
@@ -277,4 +277,14 @@ body {
  font-color: red;
 }
 
-
+.draft_container {
+    float: right;
+    margin: 100px;
+    margin-top: 160px;
+    width: 25%;
+    height: auto;
+    background-color: white;
+    border: 1px grey solid;
+    border-radius: 5px;
+    padding: 10px;
+}
