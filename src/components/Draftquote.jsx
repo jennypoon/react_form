@@ -11,11 +11,13 @@ class Draft extends Component {
   createList(obj) {
     delete obj.selectedOption
     delete obj.active
-
     return Object.keys(obj).map(function(key, keyIndex) {
-      let value = obj[key]
+      let value = parseInt(obj[key])
       let item = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
-      return <p>{item}: ${value}</p>
+
+      if (value !== 0) {
+        return <p>{item}: ${value}</p>
+      }
     })
   }
 
