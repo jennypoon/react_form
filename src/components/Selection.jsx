@@ -11,7 +11,7 @@ class Selection extends Component {
     };
 
     this.toggle = this.toggle.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
     this.handleOptionChange = this.handleOptionChange.bind(this);
     this.handleCheckedBox = this.handleCheckedBox.bind(this);
   }
@@ -23,13 +23,18 @@ class Selection extends Component {
     });
   }
 
-  handleChange(event) {
-    event.preventDefault();
-      this.setState({[event.target.name]: event.target.value});
-  }
+  // handleChange(event) {
+  //   event.preventDefault();
+  //     console.log("TESTING")
+  //     console.log("PROPS",this.props)
+  //     this.setState({[event.target.name]: event.target.value});
+  //     this.props.quoteState(event.target.name, event.target.value)
+  // }
 
   handleCheckedBox(item, value) {
     this.setState({ [item]: value})
+    this.props.quoteState(item, value)
+
   }
 
   handleOptionChange(event) {
@@ -37,10 +42,9 @@ class Selection extends Component {
   }
 
   render() {
-
+    console.log("SELECTION", this.props)
     return (
         <div className="container">
-        <Draft formState={this.state} handleCheckedBox={this.handleCheckedBox}/>
         <form>
           <ul className="flex-outer">
               <h2>Checkboxes</h2>

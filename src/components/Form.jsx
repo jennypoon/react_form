@@ -7,6 +7,7 @@ import { Accordion, AccordionItem } from 'react-light-accordion';
 class Form extends Component {
 
   render() {
+    console.log("FORM", this.props)
     return (
       <div className="form_container">
         <Accordion atomic={true}>
@@ -16,7 +17,7 @@ class Form extends Component {
           </AccordionItem>
 
           <AccordionItem title="Selection">
-            <Selection />
+            <Selection quoteState={this.props.quoteState}/>
           </AccordionItem>
 
           <AccordionItem title="Review">
