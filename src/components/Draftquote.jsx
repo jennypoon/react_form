@@ -16,7 +16,12 @@ class Draft extends Component {
       let item = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
 
       if (value !== 0) {
-        return <p>{item}: ${value}</p>
+        return (
+          <tr>
+          <td style={{width: '3%'}}>{item}</td>
+          <td style={{width: '1%'}}>${value}</td>
+          </tr>)
+
       }
     })
   }
@@ -34,17 +39,24 @@ class Draft extends Component {
       let value = parseInt(obj[key])
       total += value
     });
-   return total
- }
+        return (
+          <tr>
+          <td style={{width: '50%'}}>Total</td>
+          <td style={{width: '12.2%'}}>${total}</td>
+          </tr>)
+     }
 
   render() {
+    const {formState} = this.props
+    var length = Object.keys(formState).length;
 
     return (
       <div className="draft_container">
-        <h1>Draft Quote</h1>
+        <h3>Draft Quote</h3>
         <p> Your Selection </p>
-        {this.createList(this.props.formState)}
-        <p> Total = ${this.calculateTotal(this.props.formState)} </p>
+        { (length > 1) ? this.createList(formState) : "You haven't selected anything"}
+        <hr/>
+        { (length > 1) ? this.calculateTotal(formState) : ""}
       </div>
     )
   }
