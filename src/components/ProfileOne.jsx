@@ -18,7 +18,6 @@ class FormOne extends Component {
   handleChange(event) {
     event.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
-    console.log("HANDLE CHANGE", this.state)
   }
 
 
@@ -41,26 +40,24 @@ class FormOne extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("HANDLESUBMIT, PROFILE1", this.state)
     this.props.profileState(this.state)
   }
 
   render() {
-    console.log("PROFILE1 STATE", this.state)
     return (
      <div className="container">
       <form>
         <ul className="flex-outer">
           <li>
             <label htmlFor="first-name">First Name</label>
-            <input type="text" name="firstName" id="first-name"
+            <input type="text" name="first_Name" id="first-name"
                     onChange={this.handleChange}
                     placeholder="Enter your first name here"
                     required/>
           </li>
           <li>
             <label htmlFor="last-name">Last Name</label>
-            <input type="text" name="lastName" id="last-name" onChange={this.handleChange} placeholder="Enter your last name here" required/>
+            <input type="text" name="last_Name" id="last-name" onChange={this.handleChange} placeholder="Enter your last name here" required/>
           </li>
           <li>
             <label htmlFor="email">Email</label>
@@ -79,7 +76,7 @@ class FormOne extends Component {
                     placeholder="Enter your phone here" required/>
           </li>
           <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
-          <button type="submit" onClick={this.handleSubmit}>Submit</button>
+          <button type="submit" onClick={this.handleSubmit}>Next Section</button>
         </ul>
       </form>
     </div>
