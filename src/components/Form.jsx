@@ -24,7 +24,7 @@ class Form extends Component {
       <div>
 
         <div>
-          <DraftQuote formState={this.state}/>
+         {(this.props.draftStage) ? <DraftQuote formState={this.state}/> : ''}
         </div>
 
         <div className="form_container">
@@ -34,14 +34,17 @@ class Form extends Component {
               <button className="title">1. Profile </button>
               <div className="panel">
                 <Profile profileState={this.props.profileState}
-                         handleRedirect={this.props.handleRedirect}/>
+                         handleRedirect={this.props.handleRedirect}
+                         updateDraftStage={this.props.updateDraftStage}/>
               </div>
             </div>) :
             (<div className="accordion-item">
               <button className="title">1. Profile </button>
               <div className="panel">
                 <Profile profileState={this.props.profileState}
-                         handleRedirect={this.props.handleRedirect}/>
+                         handleRedirect={this.props.handleRedirect}
+                         updateDraftStage={this.props.updateDraftStage}/>
+
               </div>
             </div>)}
 
@@ -51,7 +54,8 @@ class Form extends Component {
               <div className="panel">
                <Selection quoteState={this.quoteStates}
                           finalSelectionState={this.props.finalSelectionState}
-                          handleRedirect={this.props.handleRedirect}/>
+                          handleRedirect={this.props.handleRedirect}
+                          updateDraftStage={this.props.updateDraftStage}/>
               </div>
             </div>) :
             (<div className="accordion-item">
@@ -59,7 +63,8 @@ class Form extends Component {
               <div className="panel">
                 <Selection quoteState={this.quoteStates}
                            finalSelectionState={this.props.finalSelectionState}
-                           handleRedirect={this.props.handleRedirect}/>
+                           handleRedirect={this.props.handleRedirect}
+                           updateDraftStage={this.props.updateDraftStage}/>
               </div>
             </div>)}
 

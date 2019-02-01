@@ -23,6 +23,7 @@ class Selection extends Component {
       this.props.handleRedirect(1)
     } else {
       this.props.finalSelectionState(this.state)
+      this.props.updateDraftStage(false)
     }
   }
 

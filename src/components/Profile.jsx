@@ -9,7 +9,6 @@ class Profile extends Component {
       selectedOption: "1",
       emailError: false,
       phoneError: false,
-      // submitted: false
     };
 
     this.handleOptionChange = this.handleOptionChange.bind(this);
@@ -30,15 +29,6 @@ class Profile extends Component {
       this.setState({[event]: false});
     }
   }
-
-  // haveSubmitted(e) {
-  //   //Goal: have order button available so they can return back to checkout
-  //   // if (this.state.emailError && this.state.phoneError) {
-  //     this.setState({submitted: true})
-
-  //   // }
-  //   console.log("FORM ONE SUBMITTED NOW TRUE")
-  // }
 
   render() {
     return (
@@ -68,6 +58,7 @@ class Profile extends Component {
               handleError={this.handleError}
               emailError={this.state.emailError}
               phoneError ={this.state.phoneError}
+              updateDraftStage={this.props.updateDraftStage}
               />
             ) : (
             <FormTwo
@@ -75,6 +66,7 @@ class Profile extends Component {
               handleError={this.handleError}
               emailError={this.state.emailError}
               phoneError ={this.state.phoneError}
+              updateDraftStage={this.props.updateDraftStage}
               />
           )}
         </div>

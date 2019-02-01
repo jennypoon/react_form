@@ -46,6 +46,7 @@ class FormOne extends Component {
       this.setState({error: true})
     } else {
       this.props.profileState(this.state)
+      this.props.updateDraftStage(true)
       this.setState({error: false})
     }
   }
