@@ -9,12 +9,7 @@ class Draft extends Component {
   }
 
   createList(obj) {
-    delete obj.selectedOption
-    delete obj.active
-    delete obj.activeSection
-    delete obj.profileInfo
-    delete obj.finalSelection
-    console.log("OBJ CREATE LIST", obj)
+    delete obj.testing
     return Object.keys(obj).map(function(key, keyIndex) {
       let value = parseInt(obj[key])
       let item = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
@@ -34,8 +29,7 @@ class Draft extends Component {
   }
 
   calculateTotal(obj) {
-    delete obj.selectedOption
-    delete obj.active
+    delete obj.testing
     let total = 0
 
     Object.keys(obj).map(function(key) {
@@ -52,15 +46,14 @@ class Draft extends Component {
   render() {
     const {formState} = this.props
     var length = Object.keys(formState).length;
-    console.log("LENGTH", length)
 
     return (
       <section className="draft_container">
         <h3>Cost Estimation</h3>
         <p> Your Items </p>
-        { (length > 4) ? this.createList(formState) : "You haven't selected anything"}
+        { (length > 1) ? this.createList(formState) : "You haven't selected anything"}
         <hr/>
-        { (length > 4) ? this.calculateTotal(formState) : ""}
+        { (length > 1) ? this.calculateTotal(formState) : ""}
       </section>
     )
   }
