@@ -15,9 +15,6 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-/*  background-image: url("https://www.digitalmga.com/hubfs/Images/DMGA_Skyscrapers_duotone_v1.jpg");
-  background-position: center;
-  background-repeat: no-repeat;*/
   background-size: cover;
   opacity: 0.4;
 }
@@ -63,15 +60,15 @@ h3.section {
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 10px auto;
+  padding: 10px;
   height: auto;
 }
 
-.container * {
+/*.container * {
   box-sizing: border-box;
   height: auto;
-}
+}*/
 
 .flex-outer,
 .flex-inner {
