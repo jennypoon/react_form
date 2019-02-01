@@ -30,8 +30,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log("PROFILE STATE", this.state)
-
     return (
       <div>
         <div className="container">
