@@ -7,6 +7,7 @@ class Review extends Component {
     this.listProfile = this.listProfile.bind(this)
     this.listSelection = this.listSelection.bind(this)
     this.calculateTotal = this.calculateTotal.bind(this)
+    this.handleEdit = this.handleEdit.bind(this)
   }
 
 
@@ -34,7 +35,7 @@ class Review extends Component {
     });
   }
 
-    calculateTotal(obj) {
+  calculateTotal(obj) {
     let total = 0
     Object.keys(obj).map(function(key) {
       let value = parseInt(obj[key])
@@ -48,8 +49,16 @@ class Review extends Component {
         </tr>)
      }
 
+  handleEdit(event) {
+    let location = event.target.name
+    if (location === "profile") {
+      this.props.handleRedirect(1)
+    } else if (location === "order") {
+      this.props.handleRedirect(2)
+    }
+  }
+
   render() {
-    console.log("REVIEW PROPS", this.props)
     const { profile } = this.props
     const { finalSelection } = this.props
 
@@ -58,10 +67,13 @@ class Review extends Component {
         <h1>Review</h1>
         <h3> Your Details </h3>
         {(profile === null) ? "" : this.listProfile(profile)}
+        <button name="profile" type="submit" onClick={this.handleEdit}>Edit</button>
         <h3> Your Order </h3>
         { (finalSelection === null) ? "" : this.listSelection(finalSelection) }
+        <button name="order" type="submit" onClick={this.handleEdit}>Edit</button>
         <hr/>
         { (finalSelection === null) ? "" : this.calculateTotal(finalSelection)}
+
       </div>
     )
   }
