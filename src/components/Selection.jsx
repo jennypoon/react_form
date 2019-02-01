@@ -5,35 +5,27 @@ import CheckboxTwo from './CheckboxForm.jsx'
 class Selection extends Component {
   constructor() {
     super();
-    this.state = {
-
-    };
-
-    this.toggle = this.toggle.bind(this);
-    this.handleOptionChange = this.handleOptionChange.bind(this);
+    // this.toggle = this.toggle.bind(this);
     this.handleCheckedBox = this.handleCheckedBox.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  toggle() {
-    this.setState({
-      active: !this.state.active,
-      className: "active"
-    });
-  }
+  // toggle() {
+  //   this.setState({
+  //     active: !this.state.active,
+  //     className: "active"
+  //   });
+  // }
 
+//SEND TO DRAFT QUOTES
   handleCheckedBox(item, value) {
     this.setState({ [item]: value})
     this.props.quoteState(item, value)
   }
 
-  handleOptionChange(event) {
-    this.setState({ selectedOption: event.target.value });
-  }
-
+//SEND TO REVIEW COMPONENT
   handleSubmit(event) {
     event.preventDefault();
-    console.log("HANDLESUBMIT, SELECTION", this.state)
     this.props.finalSelectionState(this.state)
   }
 
