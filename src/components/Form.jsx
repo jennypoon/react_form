@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import Profile from './Profile.jsx';
 import Selection from './Selection.jsx';
 import Review from './Review.jsx';
-// import { Accordion, AccordionItem } from 'react-light-accordion';
 import DraftQuote from './Draftquote.jsx';
 
 class Form extends Component {
   constructor() {
     super()
     this.state = {
-      testing: 0
+      testing: 0,
     }
 
     this.quoteStates = this.quoteStates.bind(this)
-
   }
 
   quoteStates(item, value) {
@@ -22,14 +20,11 @@ class Form extends Component {
 
   render() {
     const { activeSection } = this.props
-    console.log("FORM - ACTION SECTION", activeSection)
-    const activeClass = "accordion-item active";
-
     return (
       <div>
 
         <div>
-          <DraftQuote formState={this.state}/>
+          {(this.state.draftQuote) ? <DraftQuote formState={this.state}/> : ""}
         </div>
 
         <div className="form_container">
@@ -38,13 +33,15 @@ class Form extends Component {
             (<div className="accordion-item active">
               <button className="title"> Profile </button>
               <div className="panel">
-                <Profile profileState={this.props.profileState}/>
+                <Profile profileState={this.props.profileState}
+                         handleRedirect={this.props.handleRedirect}/>
               </div>
             </div>) :
             (<div className="accordion-item">
               <button className="title"> Profile </button>
               <div className="panel">
-                <Profile profileState={this.props.profileState}/>
+                <Profile profileState={this.props.profileState}
+                         handleRedirect={this.props.handleRedirect}/>
               </div>
             </div>)}
 
@@ -53,14 +50,16 @@ class Form extends Component {
               <button className="title"> Order </button>
               <div className="panel">
                <Selection quoteState={this.quoteStates}
-                           finalSelectionState={this.props.finalSelectionState}/>
+                          finalSelectionState={this.props.finalSelectionState}
+                          handleRedirect={this.props.handleRedirect}/>
               </div>
             </div>) :
             (<div className="accordion-item">
               <button className="title"> Order </button>
               <div className="panel">
                 <Selection quoteState={this.quoteStates}
-                           finalSelectionState={this.props.finalSelectionState}/>
+                           finalSelectionState={this.props.finalSelectionState}
+                           handleRedirect={this.props.handleRedirect}/>
               </div>
             </div>)}
 
@@ -69,14 +68,16 @@ class Form extends Component {
               <button className="title"> Review </button>
               <div className="panel">
                <Review profile={this.props.profile}
-                      finalSelection={this.props.finalSelection}/>
+                      finalSelection={this.props.finalSelection}
+                      handleRedirect={this.props.handleRedirect}/>
               </div>
             </div>) :
             (<div className="accordion-item">
               <button className="title"> Review </button>
               <div className="panel">
                 <Review profile={this.props.profile}
-                      finalSelection={this.props.finalSelection}/>
+                      finalSelection={this.props.finalSelection}
+                      handleRedirect={this.props.handleRedirect}/>
               </div>
             </div>)}
 
