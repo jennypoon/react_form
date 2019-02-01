@@ -3,7 +3,6 @@ import './App.scss';
 import Form from './components/Form.jsx'
 import Tracker from './components/Tracker.jsx'
 import Summary from './components/Summary.jsx'
-// import DraftQuote from './components/Draftquote.jsx'
 
 class App extends Component {
   constructor() {
@@ -18,17 +17,14 @@ class App extends Component {
     this.finalSelection = this.finalSelection.bind(this)
   }
 
+//ON SUBMIT OF PROFILE COMPONENT
+  profileState(profile) {
+    this.setState({profileInfo: profile, activeSection: 2})
+  }
 
 //ON SUBMIT OF SELECTION COMPONENT
   finalSelection(quote) {
-    console.log("FINAL SELECTION IN APP.jS", quote)
     this.setState({finalSelection: quote, activeSection: 3})
-  }
-
-//ON SUBMIT OF PROFILE COMPONENT
-  profileState(profile) {
-    console.log("PROFILE IN APP.JS", profile)
-    this.setState({profileInfo: profile, activeSection: 2})
   }
 
   render() {
