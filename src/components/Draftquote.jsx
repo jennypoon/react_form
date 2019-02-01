@@ -10,7 +10,6 @@ class Draft extends Component {
 
   createList(obj) {
     delete obj.testing
-    delete obj.draftQuote
     return Object.keys(obj).map(function(key, keyIndex) {
       let value = parseInt(obj[key])
       let item = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
@@ -31,8 +30,6 @@ class Draft extends Component {
 
   calculateTotal(obj) {
     delete obj.testing
-    delete obj.draftQuote
-
     let total = 0
 
     Object.keys(obj).map(function(key) {
