@@ -42,14 +42,14 @@ class FormTwo extends Component {
         <ul className="flex-outer">
           <li>
             <label htmlFor="first-name">First Name</label>
-            <input type="text" name="firstName" id="first-name"
+            <input type="text" name="first_Name" id="first-name"
                     onChange={this.handleChange}
                     placeholder="Enter your first name here"
                     required/>
           </li>
           <li>
             <label htmlFor="last-name">Last Name</label>
-            <input type="text" name="lastName" id="last-name" onChange={this.handleChange} placeholder="Enter your last name here" required/>
+            <input type="text" name="last_Name" id="last-name" onChange={this.handleChange} placeholder="Enter your last name here" required/>
           </li>
           <li>
             <label htmlFor="email">Email</label>
@@ -71,14 +71,14 @@ class FormTwo extends Component {
           <li><h3 className="section"> Business Information</h3></li>
           <li>
             <label htmlFor="business-name">Business Name</label>
-            <input type="text" name="BusinessName" id="business-name"
+            <input type="text" name="business_Name" id="business-name"
                   onChange={this.handleChange}
                   placeholder="Enter your first name here"
                   required/>
           </li>
           <li>
             <label htmlFor="business-address">Business Address</label>
-            <input type="text" name="BusinessAddress" id="business-address"
+            <input type="text" name="business_Address" id="business-address"
                   onChange={this.handleChange}
                   placeholder="Enter your first name here"
                   required/>
@@ -86,12 +86,12 @@ class FormTwo extends Component {
             <label htmlFor="question">
               <label> Question: </label>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat?</p></label>
-            <textarea rows="6" id="questionOne" onChange={this.handleChange} placeholder="Enter your answer here"></textarea>
+            <textarea rows="6" id="question_One" onChange={this.handleChange} placeholder="Enter your answer here"></textarea>
 
             <label htmlFor="question">
               <label> Question: </label>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alique?</p></label>
-            <textarea rows="4" id="questionTwo" onChange={this.handleChange} placeholder="Enter your answer here"></textarea>
+            <textarea rows="4" id="question_Two" onChange={this.handleChange} placeholder="Enter your answer here"></textarea>
         </ul>
             <button type="submit">Submit</button>
       </form>
