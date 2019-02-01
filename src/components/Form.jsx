@@ -24,7 +24,7 @@ class Form extends Component {
       <div>
 
         <div>
-          {(this.state.draftQuote) ? <DraftQuote formState={this.state}/> : ""}
+          <DraftQuote formState={this.state}/>
         </div>
 
         <div className="form_container">
