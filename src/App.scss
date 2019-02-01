@@ -202,7 +202,7 @@ button {
   transition: 0.4s;
 }
 
-.accordion-item .title:after {
+/*.accordion-item .title:after {
   content: '\2795';
   font-size: 13px;
   color: $main-blue;
@@ -221,7 +221,7 @@ button {
   color: #FFF;
   float: right;
   margin-left: 5px;
-}
+}*/
 
 .accordion-item .panel {
   max-height: 0;
