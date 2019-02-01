@@ -93,7 +93,7 @@ class FormTwo extends Component {
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna alique?</p></label>
             <textarea rows="4" id="question_Two" onChange={this.handleChange} placeholder="Enter your answer here"></textarea>
         </ul>
-            <button type="submit">Submit</button>
+          <button type="submit" onClick={this.handleSubmit}>Next Section</button>
       </form>
     </div>
   )}
