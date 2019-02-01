@@ -7,6 +7,8 @@ class FormOne extends Component {
       this.state = {
           email: '',
           phone: 0,
+          error: false
+
       };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,7 +42,12 @@ class FormOne extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.props.profileState(this.state)
+    if (this.props.emailError || this.props.phoneError || this.state.email === "" || this.state.phone === 0) {
+      this.setState({error: true})
+    } else {
+      this.props.profileState(this.state)
+      this.setState({error: false})
+    }
   }
 
   render() {
@@ -48,19 +55,20 @@ class FormOne extends Component {
      <div className="container">
       <form>
         <ul className="flex-outer">
+        {this.state.error ? (<p className="error"> Error in entry - please review the form below</p>) : ""}
           <li>
-            <label htmlFor="first-name">First Name</label>
+            <label htmlFor="first-name">First Name<sup>*</sup></label>
             <input type="text" name="first_Name" id="first-name"
                     onChange={this.handleChange}
                     placeholder="Enter your first name here"
                     required/>
           </li>
           <li>
-            <label htmlFor="last-name">Last Name</label>
+            <label htmlFor="last-name">Last Name<sup>*</sup></label>
             <input type="text" name="last_Name" id="last-name" onChange={this.handleChange} placeholder="Enter your last name here" required/>
           </li>
           <li>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email">Email<sup>*</sup></label>
             <input type="email" name="email" id="email"
                     onChange={this.handleChange}
                     onBlur={this.handleBlur}
@@ -69,7 +77,7 @@ class FormOne extends Component {
           <p  className={this.props.emailError === false ? "notError" : "error"} > Error - Please insert a valid email</p>
 
           <li>
-            <label htmlFor="phone">Phone</label>
+            <label htmlFor="phone">Phone<sup>*</sup></label>
             <input type="tel" name="phone" id="phone"
                     onChange={this.handleChange}
                     onBlur={this.handleBlur}
@@ -77,6 +85,8 @@ class FormOne extends Component {
           </li>
           <p  className={this.props.phoneError === false ? "notError" : "error"} > Error - Please insert a valid phone number</p>
           <button type="submit" onClick={this.handleSubmit}>Next Section</button>
+          {(this.props.submittedState) ? (<button type="submit" onClick={this.handleSubmit}>Back To Checkout</button>) : "" }
+
         </ul>
       </form>
     </div>
