@@ -31,14 +31,14 @@ class Form extends Component {
           <div className="accordion">
             {(activeSection === 1) ?
             (<div className="accordion-item active">
-              <button className="title"> Profile </button>
+              <button className="title">1. Profile </button>
               <div className="panel">
                 <Profile profileState={this.props.profileState}
                          handleRedirect={this.props.handleRedirect}/>
               </div>
             </div>) :
             (<div className="accordion-item">
-              <button className="title"> Profile </button>
+              <button className="title">1. Profile </button>
               <div className="panel">
                 <Profile profileState={this.props.profileState}
                          handleRedirect={this.props.handleRedirect}/>
@@ -47,7 +47,7 @@ class Form extends Component {
 
             {(activeSection === 2) ?
             (<div className="accordion-item active">
-              <button className="title"> Order </button>
+              <button className="title">2. Order </button>
               <div className="panel">
                <Selection quoteState={this.quoteStates}
                           finalSelectionState={this.props.finalSelectionState}
@@ -55,7 +55,7 @@ class Form extends Component {
               </div>
             </div>) :
             (<div className="accordion-item">
-              <button className="title"> Order </button>
+              <button className="title">2. Order </button>
               <div className="panel">
                 <Selection quoteState={this.quoteStates}
                            finalSelectionState={this.props.finalSelectionState}
@@ -65,7 +65,7 @@ class Form extends Component {
 
          {(activeSection === 3) ?
             (<div className="accordion-item active">
-              <button className="title"> Review </button>
+              <button className="title">3. Review </button>
               <div className="panel">
                <Review profile={this.props.profile}
                       finalSelection={this.props.finalSelection}
@@ -73,7 +73,7 @@ class Form extends Component {
               </div>
             </div>) :
             (<div className="accordion-item">
-              <button className="title"> Review </button>
+              <button className="title">3. Review </button>
               <div className="panel">
                 <Review profile={this.props.profile}
                       finalSelection={this.props.finalSelection}

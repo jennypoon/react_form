@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Form from './components/Form.jsx'
-import Tracker from './components/Tracker.jsx'
 
 class App extends Component {
   constructor() {
@@ -35,7 +34,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Tracker />
         <Form handleRedirect={this.handleRedirect}
               profileState={this.profileState}
               finalSelectionState={this.finalSelection}
