@@ -8,12 +8,14 @@ class App extends Component {
     this.state = {
       activeSection: 1,
       profileInfo: null,
-      finalSelection: null
+      finalSelection: null,
+      draftQuote: false
     }
 
     this.profileState = this.profileState.bind(this)
     this.finalSelection = this.finalSelection.bind(this)
     this.handleRedirect = this.handleRedirect.bind(this)
+    this.updateDraftStage = this.updateDraftStage.bind(this)
   }
 
 //ON SUBMIT OF PROFILE COMPONENT
@@ -31,6 +33,10 @@ class App extends Component {
     this.setState({activeSection: location})
   }
 
+  updateDraftStage(e) {
+    this.setState({draftQuote: e})
+  }
+
   render() {
     return (
       <div>
@@ -40,6 +46,8 @@ class App extends Component {
               activeSection={this.state.activeSection}
               profile={this.state.profileInfo}
               finalSelection={this.state.finalSelection}
+              draftStage={this.state.draftQuote}
+              updateDraftStage={this.updateDraftStage}
               />
       </div>
     );
