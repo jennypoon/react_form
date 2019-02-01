@@ -23,29 +23,38 @@ class Form extends Component {
   render() {
     return (
       <div>
+
         <div>
           <DraftQuote formState={this.state}/>
         </div>
+
         <div className="form_container">
-          <Accordion atomic={true}>
+          <div className="accordion">
+            <div className="accordion-item active">
+              <button className="title"> Profile </button>
+              <div className="panel">
+                <Profile profileState={this.props.profileState}/>
+              </div>
+            </div>
 
-            <AccordionItem title="Profile">
-              <Profile profileState={this.props.profileState}/>
-            </AccordionItem>
+            <div className="accordion-item active">
+              <button className="title"> Order </button>
+              <div className="panel">
+                <Selection quoteState={this.quoteStates}
+                           finalSelectionState={this.props.finalSelectionState}/>
+              </div>
+            </div>
 
-            <AccordionItem title="Selection">
-              <Selection quoteState={this.quoteStates}
-                         finalSelectionState={this.props.finalSelectionState}/>
-            </AccordionItem>
-
-            <AccordionItem title="Review">
-              <Review profile={this.props.profile}
+            <div className="accordion-item active">
+              <button className="title"> Review </button>
+              <div className="panel">
+                <Review profile={this.props.profile}
                       finalSelection={this.props.finalSelection}/>
-            </AccordionItem>
-
-          </Accordion>
-        </div>
+              </div>
+            </div>
+          </div>
       </div>
+    </div>
     )
   }
 }
