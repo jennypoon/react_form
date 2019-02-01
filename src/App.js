@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import Form from './components/Form.jsx'
 import Tracker from './components/Tracker.jsx'
-import Summary from './components/Summary.jsx'
 
 class App extends Component {
   constructor() {
@@ -38,7 +37,6 @@ class App extends Component {
               profile={this.state.profileInfo}
               finalSelection={this.state.finalSelection}
               />
-        <Summary />
       </div>
     );
   }
