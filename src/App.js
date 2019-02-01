@@ -14,6 +14,7 @@ class App extends Component {
 
     this.profileState = this.profileState.bind(this)
     this.finalSelection = this.finalSelection.bind(this)
+    this.handleRedirect = this.handleRedirect.bind(this)
   }
 
 //ON SUBMIT OF PROFILE COMPONENT
@@ -26,11 +27,16 @@ class App extends Component {
     this.setState({finalSelection: quote, activeSection: 3})
   }
 
+//HANDLE EDITS
+  handleRedirect(location) {
+    this.setState({activeSection: location})
+  }
+
   render() {
     return (
       <div>
         <Tracker />
-        <Form
+        <Form handleRedirect={this.handleRedirect}
               profileState={this.profileState}
               finalSelectionState={this.finalSelection}
               activeSection={this.state.activeSection}
