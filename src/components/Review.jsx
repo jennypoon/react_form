@@ -2,11 +2,66 @@ import React, { Component } from 'react';
 
 
 class Review extends Component {
+  constructor() {
+    super()
+    this.listProfile = this.listProfile.bind(this)
+    this.listSelection = this.listSelection.bind(this)
+    this.calculateTotal = this.calculateTotal.bind(this)
+  }
+
+
+  listProfile(obj) {
+    return Object.keys(obj).map(function(key) {
+      let value = obj[key]
+      let info = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
+      return (
+          <tr>
+              <td style={{width: '150px'}}> {info} </td>
+              <td> {value} </td>
+          </tr> )
+    });
+  }
+
+  listSelection(obj) {
+    return Object.keys(obj).map(function(key) {
+      let value = obj[key]
+      let info = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
+      return (
+          <tr>
+              <td style={{width: '150px'}}> {info} </td>
+              <td> ${value} </td>
+          </tr> )
+    });
+  }
+
+    calculateTotal(obj) {
+    let total = 0
+    Object.keys(obj).map(function(key) {
+      let value = parseInt(obj[key])
+      total += value
+    });
+
+      return (
+        <tr>
+          <td style={{width: '150px'}}>Total</td>
+          <td>${total}</td>
+        </tr>)
+     }
 
   render() {
+    console.log("REVIEW PROPS", this.props)
+    const { profile } = this.props
+    const { finalSelection } = this.props
+
     return (
       <div className="summary_container">
-        <h1>Summary Container</h1>
+        <h1>Review</h1>
+        <h3> Your Details </h3>
+        {(profile === null) ? "" : this.listProfile(profile)}
+        <h3> Your Order </h3>
+        { (finalSelection === null) ? "" : this.listSelection(finalSelection) }
+        <hr/>
+        { (finalSelection === null) ? "" : this.calculateTotal(finalSelection)}
       </div>
     )
   }
