@@ -8,6 +8,7 @@ class Review extends Component {
     this.listSelection = this.listSelection.bind(this)
     this.calculateTotal = this.calculateTotal.bind(this)
     this.handleEdit = this.handleEdit.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
 
@@ -28,12 +29,15 @@ class Review extends Component {
     return Object.keys(obj).map(function(key) {
       let value = obj[key]
       let info = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
-      return (
+
+      if (value !== 0) {
+        return (
           <tr>
               <td style={{width: '150px'}}> {info} </td>
-              <td> ${value} </td>
-          </tr> )
-    });
+              <td>${value} </td>
+          </tr>
+        )}
+      })
   }
 
   calculateTotal(obj) {
@@ -45,8 +49,8 @@ class Review extends Component {
 
       return (
         <tr>
-          <td style={{width: '150px'}}>Total</td>
-          <td>${total}</td>
+          <td style={{width: '150px'}}><em>Total</em></td>
+          <td><strong>${total}</strong></td>
         </tr>)
      }
 
@@ -56,7 +60,12 @@ class Review extends Component {
       this.props.handleRedirect(1)
     } else if (location === "order") {
       this.props.handleRedirect(2)
+      this.props.updateDraftStage(true)
     }
+  }
+
+  handleSubmit(e) {
+    this.props.updateCompletion(true)
   }
 
   render() {
@@ -78,9 +87,9 @@ class Review extends Component {
           <button name="order" type="submit" onClick={this.handleEdit}>Edit</button>
           <hr/>
           { (finalSelection === null) ? "" : this.listSelection(finalSelection) }
-
           { (finalSelection === null) ? "" : this.calculateTotal(finalSelection)}
         </div>
+          <button type="submit" onClick={this.handleSubmit}>Submit</button>
       </div>
     )
   }

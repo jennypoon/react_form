@@ -38,8 +38,8 @@ class Draft extends Component {
     });
       return (
         <tr>
-          <td style={{width: '50%'}}>Total</td>
-          <td style={{width: '12.2%'}}>${total}</td>
+          <td style={{width: '50%'}}><strong>Total</strong></td>
+          <td style={{width: '12.2%'}}><strong>${total}</strong></td>
         </tr>)
      }
 

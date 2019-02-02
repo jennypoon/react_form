@@ -45,8 +45,8 @@ class Checkbox extends Component {
             checked={isChecked}
             onChange={this.toggleCheckboxChange}
           />
-          <span>{item} - ${label.value}</span>
-          <p>{label.description}</p>
+          <span className="optionItem"><strong>{item} - ${label.value}</strong></span>
+          <p className="optionItemDesc">{label.description}</p>
         </label>
     );
   }

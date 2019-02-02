@@ -3,6 +3,7 @@ import Profile from './Profile.jsx';
 import Selection from './Selection.jsx';
 import Review from './Review.jsx';
 import DraftQuote from './Draftquote.jsx';
+import Complete from './Complete.jsx';
 
 class Form extends Component {
   constructor() {
@@ -26,7 +27,7 @@ class Form extends Component {
         <div>
          {(this.props.draftStage) ? <DraftQuote formState={this.state}/> : ''}
         </div>
-
+      {(this.props.completion) ? <Complete handleRedirect={this.props.handleRedirect} updateCompletion={this.props.updateCompletion}/> : (
         <div className="form_container">
           <div className="accordion">
             {(activeSection === 1) ?
@@ -74,7 +75,10 @@ class Form extends Component {
               <div className="panel">
                <Review profile={this.props.profile}
                       finalSelection={this.props.finalSelection}
-                      handleRedirect={this.props.handleRedirect}/>
+                      handleRedirect={this.props.handleRedirect}
+                      updateDraftStage={this.props.updateDraftStage}
+                      updateCompletion={this.props.updateCompletion}/>
+
               </div>
             </div>) :
             (<div className="accordion-item">
@@ -82,12 +86,14 @@ class Form extends Component {
               <div className="panel">
                 <Review profile={this.props.profile}
                       finalSelection={this.props.finalSelection}
-                      handleRedirect={this.props.handleRedirect}/>
+                      handleRedirect={this.props.handleRedirect}
+                      updateDraftStage={this.props.updateDraftStage}
+                      updateCompletion={this.props.updateCompletion}/>
               </div>
             </div>)}
 
        </div>
-      </div>
+      </div> )}
     </div>
     )
   }
