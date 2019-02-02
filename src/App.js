@@ -9,13 +9,15 @@ class App extends Component {
       activeSection: 1,
       profileInfo: null,
       finalSelection: null,
-      draftQuote: false
+      draftQuote: false,
+      complete: false
     }
 
     this.profileState = this.profileState.bind(this)
     this.finalSelection = this.finalSelection.bind(this)
     this.handleRedirect = this.handleRedirect.bind(this)
     this.updateDraftStage = this.updateDraftStage.bind(this)
+    this.updateCompletionStatus = this.updateCompletionStatus.bind(this)
   }
 
 //ON SUBMIT OF PROFILE COMPONENT
@@ -37,6 +39,11 @@ class App extends Component {
     this.setState({draftQuote: e})
   }
 
+  updateCompletionStatus(e) {
+    this.setState({complete: e})
+  }
+
+
   render() {
     return (
       <div>
@@ -48,6 +55,8 @@ class App extends Component {
               finalSelection={this.state.finalSelection}
               draftStage={this.state.draftQuote}
               updateDraftStage={this.updateDraftStage}
+              updateCompletion={this.updateCompletionStatus}
+              completion={this.state.complete}
               />
       </div>
     );

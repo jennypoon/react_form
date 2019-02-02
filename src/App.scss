@@ -235,14 +235,19 @@ body {
 
 .draft_container {
     float: right;
+    left: -100px;
     margin: 100px;
-    margin-top: 160px;
+    margin-top: 230px;
     width: 25%;
     height: auto;
     background-color: white;
     border: 1px grey solid;
     border-radius: 5px;
     padding: 10px;
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 0.5s forwards;
+    animation-delay: 2s;
 
   @media screen and (max-width: 1200px) {
     width: 25%;
@@ -275,4 +280,16 @@ tr:last-child {
     letter-spacing: .09em;
     border-radius: 2px;
   }
+}
+
+.optionItem {
+  margin: 10px;
+}
+
+.optionItemDesc {
+  margin-left: 30px;
+}
+
+.completion {
+  padding: 10px;
 }
