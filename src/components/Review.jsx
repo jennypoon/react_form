@@ -12,6 +12,7 @@ class Review extends Component {
 
 
   listProfile(obj) {
+    delete obj.error
     return Object.keys(obj).map(function(key) {
       let value = obj[key]
       let info = key.charAt(0).toUpperCase() + key.slice(1).replace("_", " ")
@@ -64,16 +65,22 @@ class Review extends Component {
 
     return (
       <div className="summary_container">
-        <h1>Review</h1>
-        <h3> Your Details </h3>
-        {(profile === null) ? "" : this.listProfile(profile)}
-        <button name="profile" type="submit" onClick={this.handleEdit}>Edit</button>
-        <h3> Your Order </h3>
-        { (finalSelection === null) ? "" : this.listSelection(finalSelection) }
-        <button name="order" type="submit" onClick={this.handleEdit}>Edit</button>
+        <h3>Review</h3>
         <hr/>
-        { (finalSelection === null) ? "" : this.calculateTotal(finalSelection)}
+        <div className="profileReview">
+          <h3> Your Details </h3>
+          <button name="profile" type="submit" onClick={this.handleEdit}>Edit</button>
+          <hr/>
+         {(profile === null) ? "" : this.listProfile(profile)}
+        </div>
+        <div className="orderReview">
+          <h3> Your Order </h3>
+          <button name="order" type="submit" onClick={this.handleEdit}>Edit</button>
+          <hr/>
+          { (finalSelection === null) ? "" : this.listSelection(finalSelection) }
 
+          { (finalSelection === null) ? "" : this.calculateTotal(finalSelection)}
+        </div>
       </div>
     )
   }
